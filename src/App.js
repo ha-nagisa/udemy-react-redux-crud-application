@@ -1,29 +1,27 @@
 import React from 'react';
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <React.Fragment>
-//         <label htmlFor="bar">bar</label>
-//         <input type="text" onClick={() => {console.log("I am Clicked")}} />
-//       </React.Fragment>
-//     );
-//   }
-// }
-
 const App = () => {
+  const pdofiles = [
+    {name:"Taro", age: 10},
+    {name:"Hanako", age: 5},
+    {name:"NoName"}
+  ]
   return (
     <div>
-      <Cat />
-      <Cat />
-      <Cat />
-      <Cat />
+      {
+      pdofiles.map((plofile, index) => {
+        return  <User name={plofile.name} age={plofile.age} key={index}/>
+      })
+      }
     </div>
   )
 }
 
-const Cat = () => {
-  return <div>Meow!</div>
+const User = (props) => {
+  return <div>Hi, I am {props.name}, and {props.age} years old!</div>
 }
 
+User.defaultProps = {
+  age:1
+}
 export default App;
